@@ -75,8 +75,8 @@ export default function Page() {
 
     try {
       const [marketRes, deltaRes] = await Promise.all([
-        fetch('http://localhost:5000/api/market/latest'),
-        fetch(`http://localhost:5000/api/watchlist/${sessionId}/delta`),
+        fetch('/api/market/latest'),
+        fetch(`/api/watchlist/${sessionId}/delta`),
       ]);
 
       if (!marketRes.ok) {
@@ -117,7 +117,7 @@ export default function Page() {
   }, [sessionId, fetchAll]);
 
   const toggleOutage = async () => {
-    await fetch('http://localhost:5000/api/market/simulate-outage', { method: 'POST' });
+    await fetch('/api/market/simulate-outage', { method: 'POST' });
     setIsSimulatingOutage(!isSimulatingOutage);
   };
 
@@ -125,7 +125,7 @@ export default function Page() {
     if (!sessionId) return;
     setPendingSymbol(symbol);
     try {
-      const res = await fetch('http://localhost:5000/api/watchlist/update', {
+      const res = await fetch('/api/watchlist/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId, symbol, action }),
@@ -143,7 +143,7 @@ export default function Page() {
     if (!sessionId) return;
     setAcknowledging(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/watchlist/${sessionId}/acknowledge`, { method: 'POST' });
+      const res = await fetch(`/api/watchlist/${sessionId}/acknowledge`, { method: 'POST' });
       if (!res.ok) throw new Error('Could not clear alerts.');
       await fetchAll();
     } catch (err) {
