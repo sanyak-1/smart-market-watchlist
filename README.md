@@ -71,10 +71,10 @@ npm run dev
 
 5. Access the web interface at:
 
-http://localhost:3000
+https://smart-market-watchlist-ivory.vercel.app/
 
 ## HACKATHON SUBMISSION DETAILS
 
-Demo Video: [Insert YouTube/Loom Link Here]
+Demo Video: https://drive.google.com/file/d/12cLMZBWsnkzscdaoOvD5Umc3ne0DNfLS/view?usp=drivesdk
 
 Target Track: FinTech / Resilient Distributed Systems
